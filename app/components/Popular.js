@@ -2,10 +2,13 @@ import React from 'react'
 
 export default class Popular extends React.Component {
   render() {
+    const languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
     return (
-      <ul>
-      Popular
+      <ul className = 'flex-center'>
+      {languages.map((language, index) => (
+        <li key={index}>{language}</li>
+      ))}
       </ul>
-      )
-  }
+        )
+      }
 }
