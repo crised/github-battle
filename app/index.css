@@ -1,11 +1,11 @@
-html, body, #app{
+html, body, #app {
   margin: 0;
   height: 100%;
   width: 100%;
 }
+
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,
-  Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 }
 
 ul {
@@ -13,7 +13,7 @@ ul {
 }
 
 li {
-  list-style-type: none; /*rid of bullet points*/
+  list-style-type: none;
 }
 
 .container {
