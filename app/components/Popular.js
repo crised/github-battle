@@ -5,25 +5,25 @@ import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons
 
 function ReposGrid({repos}) {
   return (
-    <ul id="list">
+    <ul className='grid space-around'>
     {repos.map((repo, index) => {
       const { name, owner, html_url, stargazers_count, forks, open_issues } = repo
       const { login, avatar_url } = owner
 
       return (
-      <li key={index}>
-      <h4>
+      <li key={index} className='repo bg-light'>
+      <h4 className='header-lg center-text'>
           #{index+1}
       </h4>
       <img
-        width="100px"
+        className='avatar'
         src={avatar_url}
         alt={`Avatar for ${login}`}
       />
-      <h2>
-        <a href={html_url}>{login}</a>
+      <h2 className='center-text'>
+        <a className='link' href={html_url}>{login}</a>
       </h2>
-      <ul>
+      <ul className='card-list'>
         <li>
           <FaUser color='rgb(255, 191, 116)' size={22} />
           <a href={`https://github.ocm/${login}`}>
@@ -50,12 +50,9 @@ function ReposGrid({repos}) {
   )
 }
 
-    // {[<li>1</li>,<li>1</li>]}
-
-
- // {repos.map((repo, index) => {
-      //   index
-      // })}
+ReposGrid.propTypes = {
+  repos: PropTypes.array.isRequired
+}
 
 function LanguagesNav({selected, onUpdateLanguage}){
   // console.log(props);
