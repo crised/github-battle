@@ -25,11 +25,64 @@ function Instructions () {
   )
 }
 
+class PlayerInput extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      username: ''
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    this.props.onSubmit(this.state.username)
+  }
+
+  handleChange(event) {
+    this.setState({
+      username: event.target.value
+    })
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label htmlFor='username'>
+          {this.props.label}
+        </label>
+        <div>
+        <input
+          id='username'
+          type='text'
+          className='input-light'
+          placeholder='Github username'
+          autoComplete='off'
+          value={this.state.username}
+          onChange={this.handleChange}
+        />
+        <button
+          className='btn btn-dark'
+          type='submit'
+          disabled={!this.state.username}
+        >
+          Submit
+        </button>
+        </div>
+      </form>
+      )
+  }
+}
+
 export default class Battle extends React.Component {
   render() {
     return (
       <React.Fragment>
       <Instructions />
+      <PlayerInput onSubmit={(username) => {console.log(username)}}/>
       </React.Fragment>
     )
   }
