@@ -51,11 +51,11 @@ class PlayerInput extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor='username'>
+      <form className='column player' onSubmit={this.handleSubmit}>
+        <label htmlFor='username' className='player-label'>
           {this.props.label}
         </label>
-        <div>
+        <div className='row player-inputs'>
         <input
           id='username'
           type='text'
@@ -88,7 +88,10 @@ export default class Battle extends React.Component {
     return (
       <React.Fragment>
       <Instructions />
-      <PlayerInput onSubmit={(username) => {console.log(username)}}/>
+      <PlayerInput
+        label='Username'
+        onSubmit={(username) => {console.log(username)}}
+      />
       </React.Fragment>
     )
   }
